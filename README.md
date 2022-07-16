@@ -1,5 +1,5 @@
 # Adaptive Resource Allocation for Workflow Containerization on Kubernetes
-we propose an adaptive resource allocation scheme named `ARAS`for the Kubernetes-based workflow engines.
+We propose an adaptive resource allocation scheme named `ARAS`for the Kubernetes-based workflow engines.
 Considering potential future workflow task requests within the current task pod's lifecycle, the `ARAS` uses a resource 
 scaling strategy to allocate resources in response to high-concurrency workflow scenarios.
 The `ARAS` offers resource discovery, resource evaluation, and allocation functionalities and serves as a key component for 
