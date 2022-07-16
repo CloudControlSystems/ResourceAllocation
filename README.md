@@ -14,6 +14,8 @@ KubeAdaptor and the advantages of our ARAS.
 
 We welcome you to download, learn, and work together to maintain the `KubeAdaptor` with us. If you use it for scientific research and
 engineering applications, please be sure to protect the copyright and indicate authors and source.
+If you have any questions during the operation, please do not hesitate to contact `uzz_scg@163.com`.
+
 ![KubeAdapter Architecture](images/kubeadaptor-arch.png "logical relationships of KubeAdaptor.")
 The `KubeAdaptor` for the `ARAS` is illustrated in above figure.
 As a workflow management engine, it works to administrate, schedule, and execute containerized workflow tasks.
@@ -52,8 +54,6 @@ mount the Master node's shared directory.
 Each node equips with an 8-core AMD EPYC 7742 2.2GHz CPU and 16GB of RAM, running Ubuntu 20.4 and K8s v1.19.6 and Docker version 18.09.6.
 The Redis database~v5.0.7 is installed on the Mater node.
 
-If you have any questions during the operation, please do not hesitate to contact `uzz_scg@163.com`.
-
 ![Four real-world workflows](images/four-workflow.png "four-workflow")
 *The picture above is the topology diagram of four real-world workflow applications.*
 
@@ -69,11 +69,11 @@ the definitions of system core functionality pods and four scientific workflows.
 
 **steps:**
 
-*1. Update the K8s nodes' ip.
+* Update the K8s nodes' ip.
 
   Update the `ipNode.txt` in line with your K8s cluster.
 
-*2. Update `./deploy/$workflowName.yaml.bak`.
+* Update `./deploy/$workflowName.yaml.bak`.
 
   Take `Montage.yaml.bak` as example, you need modify the image address of task-container-builder pod
   and workflow-injector pod according to experimental requirements. 
@@ -158,7 +158,7 @@ the definitions of system core functionality pods and four scientific workflows.
     required by the users. 
     The `minCpu` and `minMem` represent a minimum of CPU and memory resources required to run the current task container, respectively.
 
-*3. Run `./deploy.sh`
+* Run `./deploy.sh`
 
   Deploy the `KubeAdaptor` into the K8s cluster. The `./deploy/edit.sh` file firstly captures the Master's IP,
   updates the other corresponding files. Then it copies `$workflowName.yaml.bak` to `workflowInjector-Builder.yaml`.
@@ -167,11 +167,11 @@ the definitions of system core functionality pods and four scientific workflows.
   ```console
   kubectl get pods -A --watch -o wide
   ```
-*4. Run `./clear.sh`
+* Run `./clear.sh`
 
   When the workflow is completed, you can run the `./clear.sh` file to clean up the workflow information and obtain the log files.
 
-*5. Run `./redisClear.sh`
+* Run `./redisClear.sh`
   
   Finally, you need to execute `./redisClear.sh` and input `flushall` to clean up the Redis database.
 
